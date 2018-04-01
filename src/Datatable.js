@@ -14,7 +14,8 @@ class DatatableComponent extends Component {
 
      this.handlePreviousPageClick = this.handlePreviousPageClick.bind(this);
      this.handleNextPageClick = this.handleNextPageClick.bind(this);
-         
+    
+     // state - store datatable properties
      this.state = { nColumns: 5, 
       columns: [], 
       data: [],
@@ -31,11 +32,13 @@ class DatatableComponent extends Component {
     this.browseAPI(this.state.page, this.state.category);
   }
 
+  // on category changed
   onCategoryChanged(value) {
     this.setState({page: 1, category: value, columns: []})
     this.browseAPI(1, value)
   }
 
+  // on cell clicked
   handleCellClick = (y, x, row) => {
     this.props.onCellClicked(this.state.data[y]);
   }
@@ -52,13 +55,13 @@ class DatatableComponent extends Component {
   // on next page clicked
   handleNextPageClick() {
     var currentPage = this.state.page + 1
-    console.log(currentPage)
     this.setState({
       page: currentPage,
     });
     this.browseAPI(currentPage, this.state.category);
   }
 
+  // browse star-wars API
   browseAPI (currentPage, category) {
     
     axios.get('https://swapi.co/api/' + category + '?page=' + currentPage).then(response => 
@@ -69,9 +72,8 @@ class DatatableComponent extends Component {
       this.setState({count: response.data.count})
 
       if (results.length > 0) {
-        var i=0;
         for (var key in results[0]) {
-          if (i < this.state.nColumns && this.state.columns.length < this.state.nColumns) {
+          if (this.state.columns.length < this.state.nColumns) {
             this.setState({columns: this.state.columns.concat(
               {
                 key: key,
@@ -83,11 +85,6 @@ class DatatableComponent extends Component {
         }
       })
   }
-
-  showAlert() {
-    alert('Hello World');
-}
-
  
   render() {
     return (

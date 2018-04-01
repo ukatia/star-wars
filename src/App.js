@@ -23,8 +23,6 @@ class App extends Component {
   }
 
   showDetails(data) {
-    console.log('details')
-    console.log(data)
     this.setState({ description : data });
     this.setState({ showModal : true });
   }
@@ -41,7 +39,6 @@ class App extends Component {
   }
   
   render() {
-
 
     return (
       <div className="App">
