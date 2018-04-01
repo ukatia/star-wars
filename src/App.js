@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DatatableComponent from './Datatable.js'
-import logo from './logo.svg';
 import './App.css';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';

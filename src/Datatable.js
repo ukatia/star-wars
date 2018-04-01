@@ -10,13 +10,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 class DatatableComponent extends Component {
 
   constructor(props) {
-    // props = TABLE_COLUMNS;
      super(props)
 
      this.handlePreviousPageClick = this.handlePreviousPageClick.bind(this);
      this.handleNextPageClick = this.handleNextPageClick.bind(this);
          
-    // this.state = { page: 1 }
      this.state = { nColumns: 5, 
       columns: [], 
       data: [],

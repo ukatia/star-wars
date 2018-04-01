@@ -1,7 +1,7 @@
 {
   "name": "star-wars",
   "version": "0.1.0",
-  "homepage": "http://ukatia.github.io/star-wars",
+  "homepage": "https://ukatia.github.io/star-wars/",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
